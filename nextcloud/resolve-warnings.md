@@ -60,3 +60,19 @@ docker exec -it ix-nextcloud-nextcloud-1 bash
      docker exec -u www-data -it ix-nextcloud-nextcloud-1 php occ db:add-missing-indices
      ```
      You can also check the commands with `--dry-run` before applying.
+
+5. **Issue: No Default Phone Region Set**
+
+    - Access the Nextcloud container (if using Docker):
+    ```bash
+    docker exec -it <container_name> bash
+    ```
+    - Open the `config.php` file in a text editor (e.g., nano or vim):
+    ```bash
+    nano /var/www/html/config/config.php
+    ```
+    - Add the following line:
+    ```php
+    'default_phone_region' => 'US',
+    ```
+    - Replace `'US'` with the appropriate country code for your region.
